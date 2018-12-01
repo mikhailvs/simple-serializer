@@ -3,7 +3,7 @@ Style/Documentation:
 
 Naming/FileName:
   Exclude:
-    - lib/event-bus.rb
+    - lib/simple-serializer.rb
 
 Metrics/BlockLength:
   Exclude:

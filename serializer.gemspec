@@ -4,7 +4,7 @@ lib = File.expand_path('lib', __dir__)
 
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'serializer'
+require 'simple_serializer'
 
 Gem::Specification.new do |s|
   s.name = 'simple-serializer'
@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.email = ['slyusarevmikhail@gmail.com']
   s.summary = 'Simple serializer. Easily serialize objects.'
   s.homepage = 'https://github.com/mikhailvs/simple-serializer'
-  s.files = ['lib/serializer.rb']
+  s.files = ['lib/simple_serializer.rb', 'lib/simple-serializer.rb']
   s.require_paths = ['lib']
   s.license = 'MIT'
 
