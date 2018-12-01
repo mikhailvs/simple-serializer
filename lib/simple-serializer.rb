@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-require 'simple_serializer'
+require_relative 'simple_serializer'
