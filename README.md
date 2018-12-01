@@ -1,4 +1,5 @@
 # SimpleSerializer
+[![Gem Version](https://badge.fury.io/rb/simple-serializer.svg)](https://badge.fury.io/rb/simple-serializer)
 
 ## Install
 
