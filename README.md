@@ -14,7 +14,7 @@ gem install simple-serializer
 
 ## Usage
 ```ruby
-require 'serializer'
+require 'simple-serializer'
 
 class Account < ApplicationRecord; end
 
