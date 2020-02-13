@@ -17,7 +17,7 @@ class SimpleSerializer
     attr_reader :fields
 
     def inherited(sub)
-      sub.instance_variable_set(:@fields, fields.to_h)
+      sub.instance_variable_set(:@fields, fields.to_h.dup)
     end
 
     def helpers
