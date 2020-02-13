@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SimpleSerializer
-  VERSION = '0.1.2'
+  VERSION = '0.1.3'
 
   def initialize(object)
     @object = object
