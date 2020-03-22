@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SimpleSerializer
-  VERSION = '0.1.5'
+  VERSION = '0.1.6'
 
   def initialize(object, opts = {})
     @include = opts[:include] || []
@@ -27,9 +27,9 @@ class SimpleSerializer
 
       Module.new.tap do |m|
         m.define_singleton_method(:included) do |base|
-          base.define_method(:to_h) { serializer.to_h(self) }
+          base.define_method(:to_h) { |o = {}| serializer.to_h(self, o) }
 
-          base.define_method(:to_json) { serializer.to_json(self) }
+          base.define_method(:to_json) { |o = {}| serializer.to_json(self, o) }
 
           base.define_method(:serializer_class) { serializer }
         end
@@ -44,8 +44,8 @@ class SimpleSerializer
       new(object, opts).to_h
     end
 
-    def to_json(object)
-      to_h(object).to_json
+    def to_json(object, opts = {})
+      to_h(object, opts).to_json
     end
 
     def attributes(*fields, **named, &block)
