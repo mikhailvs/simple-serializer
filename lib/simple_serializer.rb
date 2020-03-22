@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 class SimpleSerializer
-  VERSION = '0.1.4'
+  VERSION = '0.1.5'
 
-  def initialize(object)
+  def initialize(object, opts = {})
+    @include = opts[:include] || []
+    @exclude = opts[:exclude] || []
     @object = object
   end
 
@@ -38,8 +40,8 @@ class SimpleSerializer
       to_h(object)
     end
 
-    def to_h(object)
-      new(object).to_h
+    def to_h(object, opts = {})
+      new(object, opts).to_h
     end
 
     def to_json(object)
@@ -64,7 +66,9 @@ class SimpleSerializer
   private
 
   def to_h_single(object)
-    self.class.fields&.reduce({}) do |h, (k, v)|
+    self.class.fields&.merge(Hash[@include.zip])&.reduce({}) do |h, (k, v)|
+      next h if @exclude.include?(k)
+
       h.merge!(serialize_key_val(object, k, v))
     end
   end
