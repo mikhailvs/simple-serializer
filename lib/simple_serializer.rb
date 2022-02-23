@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SimpleSerializer
-  VERSION = '0.1.6'
+  VERSION = '0.1.7'
 
   def initialize(object, opts = {})
     @include = opts[:include] || []
